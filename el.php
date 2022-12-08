@@ -60,27 +60,193 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     <link rel="stylesheet" href="css/font-awesome.min.css?display=swap">
-    <!--<link rel="stylesheet" href="downloaderi.css">-->
-    <script defer type="598483635d84f38bbdb7382a-text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            window.toasted = new window.Toasted({
-                theme: 'bootstrap',
-                position: 'top-center',
-                duration: 5000,
-            })
-        });
 
-</head>
-<body id="body" class="body">
-<script>
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme == "dark") {
-          document.body.classList.toggle("dark-theme");
-        } else if (currentTheme == "light") {
-          document.body.classList.toggle("light-theme");
+    <style type="text/css">
+        @media (min-width: 768px) {
+            .about-section .service-cards {
+                gap: 0!important;
+            }
+            .about-section .service-card {
+                padding-right: 25px;
+                padding-left: 25px;
+                flex: 0 0 auto !important;
+                width: 33.33333333%;
+            }
+        }
+        .dropdown-menu.show {
+            display: grid;
+        }
+        .artical-head {
+            color:#334f7e !important
+        }
+        .dark-theme .artical-head {
+            color: white!important;
+        }
+        .about-section .service-card .icon svg {
+            width: auto;
+            height: 80px;
+        }
+        .collapsed .icon {
+            transform: rotate(0deg)!important;
+        }
+        .accordion .icon {
+            transform: rotate(180deg) ;
+        }
+        @media (min-width: 900px) {
+            .accordion{
+                width: 65%!important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        #artical {
+            margin-top: 15px !important;
         }
 
-    </script>
+        .st0 {
+            fill: #7D8EA8;
+            fill-opacity: 0.5;
+        }
+
+        .st1 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+        }
+
+        .st2 {
+            fill: #7D8EA8;
+            fill-opacity: 0.3;
+        }
+
+        .st3 {
+            fill: #33507E;
+        }
+    </style><style type="text/css">
+        .st0 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .st1 {
+            fill: #7D8EA8;
+        }
+
+        .st2 {
+            fill: #009B72;
+            stroke: #334F7E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+    <style type="text/css">
+        .st0 {
+            fill: #7D8EA8;
+        }
+
+        .st1 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+    <style type="text/css">
+        .st0 {
+            clip-path: url(#SVGID_00000079464265908996210760000012305605282336974504_);
+        }
+
+        .st1 {
+            fill: #7D8EA8;
+        }
+
+        .st2 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+    <style type="text/css">
+        .st0 {
+            clip-path: url(#SVGID_00000149378108997942356000000008731586462345431429_);
+            height: 80px;
+        }
+
+        .st1 {
+            fill: #7D8EA8;
+            height: 80px !important;
+        }
+
+        .st2 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            height: 80px;
+        }
+    </style><style type="text/css">
+        .st0 {
+            clip-path: url(#SVGID_00000092455597627947202120000002799908034589359492_);
+        }
+
+        .st1 {
+            fill: #7D8EA8;
+        }
+
+        .st2 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+    <style>
+        #video_title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-align: left;
+        }
+        .dark-theme #video-image {
+            background-color: #2b333e!important;
+        }
+        @media (min-width: 768px) {
+            .w-md-75 {
+                width: 75% !important;
+            }
+        }
+        @media (min-width: 990px) {
+            .w-md-75 a {
+                padding: 10px 90px 10px 90px!important;
+            }
+        }
+        @media (max-width: 990px) {
+            .w-md-75 a {
+                padding-top: 10px!important;
+                padding-bottom: 10px!important;
+            }
+        }
+        .share-button:hover {
+            background-color:#29b76b;
+        }
+        .share-button:focus {
+            background-color:#29b76b;
+        }
+    </style>
+
+    <!--<link rel="stylesheet" href="downloaderi.css">-->
+
+
 
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -183,66 +349,7 @@
         </div>
     </div>
 
-    <script>
-        function runGet() {
-            $('#fieldRequired').text("");
-            var videoUrl = document.getElementById("url").value;
-            if (videoUrl == "") {
-                $('#fieldRequired').text('Please Enter Tiktok url!');
-                return;
-            }
-            const progress = document.querySelector(".progress-box");
-            clearProgressBar()
-            progress.classList.add("active");
-            runProgressBar()
-            setTimeout(redirectToDownload(), 150);
-        }
-        function redirectToDownload() {
-            var videoUrl = document.getElementById("url").value;
-            $.ajax({
-                    url: "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index'",
-                    type: "GET",
-                    data: {
-                        'url': videoUrl
-                    },
-                    headers: {
-                        'X-RapidAPI-Key': '3d204a970emshd8658b3f3e32d6dp138ebcjsn7a898b2a7b31',
-                        'X-RapidAPI-Host': 'tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com'
-                    },
-                    success: function (data) {
-                        if (data.status === 'failed') {
-                            (document.querySelector(".progress-box")).classList.remove("active");
-                            $('#fieldRequired').text('Error: Url is not supported!');
-                        } else {
-                            var thumbnail = data.cover
-                            var withOutMark = data.video;
-                            var sound = data.music;
-                            var author = data.author;
-                            document.getElementById('video_image').src = thumbnail;
-                            document.getElementById('author').innerHTML = author;
-                            document.getElementById('video_title').innerHTML = data.description;
-                            document.getElementsByClassName('btn-download-video')[0].href=`download-tik.php?token=${window.btoa(withOutMark)}&media=video/mp4`
-                            document.getElementsByClassName('btn-download-sound')[0].href=`download-tik.php?token=${window.btoa(sound)}&media=audio/mp3`
-                            goDownloadPage()
-                            // window.open('download.php?v=' + sv, '_self');
-                        }
-                    }
-                });
-        }
-        function goDownloadPage() {
-            document.getElementsByClassName("without-video-url")[0].style.display = "none";
-            document.getElementsByClassName("without-video-url")[1].style.display = "none";
-            document.getElementsByClassName("with-video-url")[0].style.display = "block";
-        }
-        function runProgressBar() {
-            var progressBar = document.querySelector(".progress-bar");
-            progressBar.style.animation = 'progressing 9s linear';
-        }
-        function clearProgressBar() {
-            var progressBar = document.querySelector(".progress-bar");
-            progressBar.style.width = '0%';
-        }
-    </script>
+
 
     <div class="ad-box">
             <div class="container">
@@ -313,177 +420,7 @@
                         <br>
                 </span>
 
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-    function SplashComponent() {
-        return {
-            /**
-             * @var {Record<string, any|Record<string,any>|Record<string,any>[]>}
-             */
-            tiktokVideo: null,
-            url: "",
-            processing: false,
-            submitForm() {
 
-                if (!validateURL(this.url)) {
-                    alert("hii");
-                    return window.toasted.show("Please enter a valid URL", {
-                        type: "error"
-                    });
-                }
-
-                this.processing = true;
-                const instance = this;
-                const formData = new FormData(this.$refs.form);
-
-                fetch(this.$refs.form.action, {
-                        method: this.$refs.form.method,
-                        body: formData,
-                        headers: {
-                            "accept": "application/json"
-                        }
-                    })
-                    .then(function(response) {
-                        if (response.status !== 200) {
-                            return response.json().then(function(data) {
-                                throw new Error(data.message ?? response.statusText);
-                            });
-                        }
-                        $('.how-to-section').hide();
-                        $('.about-section').hide();
-                        $('.faq-section').hide();
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        instance.tiktokVideo = data;
-                    })
-                    .catch(function(error) {
-                        window.toasted.show(error.message, {
-                            type: "error"
-                        });
-                    })
-                    .finally(function() {
-                        instance.processing = false;
-                    });
-            },
-            //Paste logic
-            get canPaste() {
-                return window.navigator.clipboard;
-            },
-            pasteText() {
-                $('#clearBtn').show();
-                $('#pasteBtn').hide();
-                if (this.canPaste) {
-                    const instance = this;
-                    window.navigator.clipboard.readText().then(function(text) {
-                        instance.url = text;
-                    });
-                }
-            },
-            downloadText(download) {
-                return (download.isHD ? "Without Watermark [:idx] HD" : "Without Watermark [:idx]").replace(":idx", download.idx + 1);
-            },
-            downloadSize(download) {
-                if (!download.size) return ''
-                return ' ' + bytesToSize(download.size);
-            },
-
-            searchVideo(event) {
-                const instance = this;
-                this.resetVideo(event.detail).then(function() {
-                    instance.submitForm();
-                    window.scrollTo({
-                        top: 0
-                    });
-                });
-            },
-            resetVideo(url = "") {
-                $('#clearBtn').hide();
-                $('#pasteBtn').show();
-                this.url = url;
-                this.tiktokVideo = null;
-                $('.how-to-section').show();
-                $('.about-section').show();
-                $('.faq-section').show();
-                return this.$nextTick();
-            },
-            downloadVideo(e) {
-                let anchorEl = e.target;
-                if (anchorEl.tagName.toLowerCase() !== 'a') {
-                    anchorEl = anchorEl.closest('a');
-                }
-
-                if (!anchorEl || !anchorEl.href) return;
-
-                const url = new URL('/download', 'https://downloaderi.com/');
-
-                const extension = anchorEl.dataset.extension ?? 'mp4';
-                const size = anchorEl.dataset.size;
-
-                url.searchParams.set('url', btoa(anchorEl.href));
-                url.searchParams.set('extension', extension);
-                if (typeof size === 'string' && size.trim() !== '')
-                    url.searchParams.set('size', size);
-
-                open(url.toString(), "_blank");
-            }
-        };
-    }
-
-    function bytesToSize(bytes) {
-        const units = ["byte", "kilobyte", "megabyte", "terabyte", "petabyte"];
-        const unit = Math.floor(Math.log(bytes) / Math.log(1024));
-        return new Intl.NumberFormat("en", {
-            style: "unit",
-            unit: units[unit],
-            unitDisplay: 'narrow',
-            notation: 'compact'
-        }).format(bytes / 1024 ** unit);
-    }
-
-    function validateURL(url) {
-        return /^(https?:\/\/)?(www\.)?vm\.tiktok\.com\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?m\.tiktok\.com\/v\/[^\n]+\.html([^\n]+)?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/t\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/@[^\n]+\/video\/[^\n]+$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?vt\.tiktok\.com\/[^\n]+\/?$/.test(url)
-    }
-
-                                        </script>
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-        function AccordionComponent() {
-            return {
-                show: false,
-                toggleShow() {
-                    this.show = !this.show;
-                }
-            };
-        }
-
-                                        </script>
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-        function HeaderComponent() {
-            return {
-                showNav: false,
-                toggleNav() {
-                    this.showNav = !this.showNav;
-                }
-            };
-        }
-
-                                        </script>
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-        function ChangeLocaleComponent() {
-            return {
-                showMenu: false,
-                closeMenu() {
-                    this.showMenu = false;
-                },
-                toggleMenu() {
-                    this.showMenu = !this.showMenu;
-                }
-            };
-        }
-                                        </script>
 
                     <section class="about-section" aria-label="Σχετικά με την ενότητα">
                         <div class="container">
@@ -491,68 +428,8 @@
                                 <div class="service-card">
                                     <div class="icon">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 54 88" style="enable-background:new 0 0 54 88;" xml:space="preserve">
-<style type="text/css">
-    @media (min-width: 768px) {
-        .about-section .service-cards {
-            gap: 0!important;
-        }
-        .about-section .service-card {
-            padding-right: 25px;
-            padding-left: 25px;
-            flex: 0 0 auto !important;
-            width: 33.33333333%;
-        }
-    }
-    .dropdown-menu.show {
-        display: grid;
-    }
-    .artical-head {
-        color:#334f7e !important
-    }
-    .dark-theme .artical-head {
-        color: white!important;
-    }
-     .about-section .service-card .icon svg {
-        width: auto;
-        height: 80px;
-    }
-    .collapsed .icon {
-        transform: rotate(0deg)!important;
-    }
-    .accordion .icon {
-        transform: rotate(180deg) ;
-    }
-    @media (min-width: 900px) {
-        .accordion{
-            width: 65%!important;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-    #artical {
-        margin-top: 15px !important;
-    }
 
-    .st0 {
-        fill: #7D8EA8;
-        fill-opacity: 0.5;
-    }
 
-    .st1 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-    }
-
-    .st2 {
-        fill: #7D8EA8;
-        fill-opacity: 0.3;
-    }
-
-    .st3 {
-        fill: #33507E;
-    }
-</style>
                                             <path class="st0" d="M8.5,8h29c4.4,0,8,3.6,8,8v64c0,4.4-3.6,8-8,8h-29c-4.4,0-8-3.6-8-8V16C0.5,11.6,4.1,8,8.5,8z"></path>
                                             <path class="st1" d="M16.5,1h29c3.9,0,7,3.1,7,7v64c0,3.9-3.1,7-7,7h-29c-3.9,0-7-3.1-7-7V8C9.5,4.1,12.6,1,16.5,1z"></path>
                                             <path class="st2" d="M18.2,63h10c1.1,0,2,0.9,2,2v6c0,1.1-0.9,2-2,2h-10c-1.1,0-2-0.9-2-2v-6C16.2,63.9,17.1,63,18.2,63z"></path>
@@ -565,27 +442,7 @@
                                 <div class="service-card">
                                     <div class="icon">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
 
-    .st1 {
-        fill: #7D8EA8;
-    }
-
-    .st2 {
-        fill: #009B72;
-        stroke: #334F7E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-</style>
                                             <path class="st0" d="M30,60V16.7l9-1.5 M70,53V10l-9,1.5"></path>
                                             <path class="st1" d="M12,78c5.5,0,10-4.5,10-10s-4.5-10-10-10C6.5,58,2,62.5,2,68S6.5,78,12,78z"></path>
                                             <path class="st0" d="M20,70c5.5,0,10-4.5,10-10s-4.5-10-10-10s-10,4.5-10,10S14.5,70,20,70z"></path>
@@ -601,19 +458,7 @@
                                 <div class="service-card">
                                     <div class="icon">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        fill: #7D8EA8;
-    }
 
-    .st1 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-</style>
                                             <path class="st0" d="M49,29c-0.6,0.6-1,1.5-1,2.3c0,0.9,0.3,1.7,1,2.3l5.3,5.3c0.6,0.6,1.5,1,2.3,1c0.9,0,1.7-0.3,2.3-1l12.6-12.6
 	c1.7,3.7,2.2,7.8,1.5,11.8c-0.7,4-2.7,7.7-5.5,10.6c-2.9,2.9-6.6,4.8-10.6,5.5c-4,0.7-8.1,0.2-11.8-1.5l-23,23
 	c-1.3,1.3-3.1,2.1-5,2.1c-1.9,0-3.7-0.7-5-2.1c-1.3-1.3-2.1-3.1-2.1-5c0-1.9,0.7-3.7,2.1-5l23-23c-1.7-3.7-2.2-7.8-1.5-11.8
@@ -630,23 +475,7 @@
                                 <div class="service-card">
                                     <div class="icon">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        clip-path: url(#SVGID_00000079464265908996210760000012305605282336974504_);
-    }
 
-    .st1 {
-        fill: #7D8EA8;
-    }
-
-    .st2 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-</style>
                                             <g>
                                                 <defs>
                                                     <rect id="SVGID_1_" width="80" height="80"></rect>
@@ -667,26 +496,7 @@
                                 <div class="service-card">
                                     <div class="icon">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        clip-path: url(#SVGID_00000149378108997942356000000008731586462345431429_);
-        height: 80px;
-    }
 
-    .st1 {
-        fill: #7D8EA8;
-        height: 80px !important;
-    }
-
-    .st2 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        height: 80px;
-    }
-</style>
                                             <g>
                                                 <defs>
                                                     <rect id="SVGID_1_" width="80" height="80"></rect>
@@ -709,23 +519,8 @@
                                 <div class="service-card">
                                     <div class="icon">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        clip-path: url(#SVGID_00000092455597627947202120000002799908034589359492_);
-    }
 
-    .st1 {
-        fill: #7D8EA8;
-    }
 
-    .st2 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-</style>
                                             <g>
                                                 <defs>
                                                     <rect id="SVGID_1_" width="80" height="80"></rect>
@@ -761,13 +556,7 @@
                     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
                     <!--<script src="js/jquery.min.js"></script>-->
                     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-                    <script>
-                        function collapse(id) {
-                            let collapse = document.getElementById(id);
-                            if (collapse.classList.contains("show")) collapse.classList.remove("show");
-                            else collapse.classList.add("show");
-                        }
-                    </script>
+
                     <br><br>
 
                     <div class="accordion" x-data="AccordionComponent()">
@@ -906,40 +695,6 @@
                 <br><br><br>
             </div>
         </div>
-        <style>
-            #video_title {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-align: left;
-            }
-            .dark-theme #video-image {
-                background-color: #2b333e!important;
-            }
-            @media (min-width: 768px) {
-                .w-md-75 {
-                    width: 75% !important;
-                }
-            }
-            @media (min-width: 990px) {
-                .w-md-75 a {
-                    padding: 10px 90px 10px 90px!important;
-                }
-            }
-            @media (max-width: 990px) {
-                .w-md-75 a {
-                    padding-top: 10px!important;
-                    padding-bottom: 10px!important;
-                }
-            }
-            .share-button:hover {
-                background-color:#29b76b;
-            }
-            .share-button:focus {
-                background-color:#29b76b;
-            }
-        </style>
     </div>
 </main>
 
@@ -967,6 +722,74 @@
         </path>
     </svg>
 </button>
+
+    <script>
+        function collapse(id) {
+            let collapse = document.getElementById(id);
+            if (collapse.classList.contains("show")) collapse.classList.remove("show");
+            else collapse.classList.add("show");
+        }
+    </script>
+    <script>
+        function runGet() {
+            $('#fieldRequired').text("");
+            var videoUrl = document.getElementById("url").value;
+            if (videoUrl == "") {
+                $('#fieldRequired').text('Please Enter Tiktok url!');
+                return;
+            }
+            const progress = document.querySelector(".progress-box");
+            clearProgressBar()
+            progress.classList.add("active");
+            runProgressBar()
+            setTimeout(redirectToDownload(), 150);
+        }
+        function redirectToDownload() {
+            var videoUrl = document.getElementById("url").value;
+            $.ajax({
+                url: "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index'",
+                type: "GET",
+                data: {
+                    'url': videoUrl
+                },
+                headers: {
+                    'X-RapidAPI-Key': '3d204a970emshd8658b3f3e32d6dp138ebcjsn7a898b2a7b31',
+                    'X-RapidAPI-Host': 'tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com'
+                },
+                success: function (data) {
+                    if (data.status === 'failed') {
+                        (document.querySelector(".progress-box")).classList.remove("active");
+                        $('#fieldRequired').text('Error: Url is not supported!');
+                    } else {
+                        var thumbnail = data.cover
+                        var withOutMark = data.video;
+                        var sound = data.music;
+                        var author = data.author;
+                        document.getElementById('video_image').src = thumbnail;
+                        document.getElementById('author').innerHTML = author;
+                        document.getElementById('video_title').innerHTML = data.description;
+                        document.getElementsByClassName('btn-download-video')[0].href=`download-tik.php?token=${window.btoa(withOutMark)}&media=video/mp4`
+                        document.getElementsByClassName('btn-download-sound')[0].href=`download-tik.php?token=${window.btoa(sound)}&media=audio/mp3`
+                        goDownloadPage()
+                        // window.open('download.php?v=' + sv, '_self');
+                    }
+                }
+            });
+        }
+        function goDownloadPage() {
+            document.getElementsByClassName("without-video-url")[0].style.display = "none";
+            document.getElementsByClassName("without-video-url")[1].style.display = "none";
+            document.getElementsByClassName("with-video-url")[0].style.display = "block";
+        }
+        function runProgressBar() {
+            var progressBar = document.querySelector(".progress-bar");
+            progressBar.style.animation = 'progressing 9s linear';
+        }
+        function clearProgressBar() {
+            var progressBar = document.querySelector(".progress-bar");
+            progressBar.style.width = '0%';
+        }
+    </script>
 <script>
     const lang = {currentLang: "el", paste: "Paste", clear: "Clear", linkEmpty: "Link is empty."};
 </script>

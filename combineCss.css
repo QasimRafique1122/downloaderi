@@ -1,0 +1,37 @@
+
+#video_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+}
+.dark-theme #video-image {
+    background-color: #2b333e!important;
+}
+@media (min-width: 768px) {
+    .w-md-75 {
+        width: 75% !important;
+    }
+}
+@media (min-width: 990px) {
+    .w-md-75 a {
+        padding: 10px 90px 10px 90px!important;
+    }
+}
+@media (max-width: 990px) {
+    .w-md-75 a {
+        padding-top: 10px!important;
+        padding-bottom: 10px!important;
+    }
+}
+.share-button:hover {
+    background-color:#29b76b;
+}
+.share-button:focus {
+    background-color:#29b76b;
+}
+
+
+
+

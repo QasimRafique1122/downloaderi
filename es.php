@@ -61,27 +61,40 @@
     <link rel="stylesheet" href="css/font-awesome.min.css?display=swap">
     <!--<link rel="stylesheet" href="downloaderi.css">-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script defer="" type="598483635d84f38bbdb7382a-text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            window.toasted = new window.Toasted({
-                theme: 'bootstrap',
-                position: 'top-center',
-                duration: 5000,
-            })
-        });
-
-</head>
-<body id="body" class="body">
-<script>
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme == "dark") {
-          document.body.classList.toggle("dark-theme");
-        } else if (currentTheme == "light") {
-          document.body.classList.toggle("light-theme");
+    <style>
+        #video_title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-align: left;
         }
-
-    </script>
-
+        .dark-theme #video-image {
+            background-color: #2b333e!important;
+        }
+        @media (min-width: 768px) {
+            .w-md-75 {
+                width: 75% !important;
+            }
+        }
+        @media (min-width: 990px) {
+            .w-md-75 a {
+                padding: 10px 90px 10px 90px!important;
+            }
+        }
+        @media (max-width: 990px) {
+            .w-md-75 a {
+                padding-top: 10px!important;
+                padding-bottom: 10px!important;
+            }
+        }
+        .share-button:hover {
+            background-color:#29b76b;
+        }
+        .share-button:focus {
+            background-color:#29b76b;
+        }
+    </style>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -313,177 +326,7 @@
                          <br>
                 </span>
 
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-    function SplashComponent() {
-        return {
-            /**
-             * @var {Record<string, any|Record<string,any>|Record<string,any>[]>}
-             */
-            tiktokVideo: null,
-            url: "",
-            processing: false,
-            submitForm() {
 
-                if (!validateURL(this.url)) {
-                    alert("hii");
-                    return window.toasted.show("Please enter a valid URL", {
-                        type: "error"
-                    });
-                }
-
-                this.processing = true;
-                const instance = this;
-                const formData = new FormData(this.$refs.form);
-
-                fetch(this.$refs.form.action, {
-                        method: this.$refs.form.method,
-                        body: formData,
-                        headers: {
-                            "accept": "application/json"
-                        }
-                    })
-                    .then(function(response) {
-                        if (response.status !== 200) {
-                            return response.json().then(function(data) {
-                                throw new Error(data.message ?? response.statusText);
-                            });
-                        }
-                        $('.how-to-section').hide();
-                        $('.about-section').hide();
-                        $('.faq-section').hide();
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        instance.tiktokVideo = data;
-                    })
-                    .catch(function(error) {
-                        window.toasted.show(error.message, {
-                            type: "error"
-                        });
-                    })
-                    .finally(function() {
-                        instance.processing = false;
-                    });
-            },
-            //Paste logic
-            get canPaste() {
-                return window.navigator.clipboard;
-            },
-            pasteText() {
-                $('#clearBtn').show();
-                $('#pasteBtn').hide();
-                if (this.canPaste) {
-                    const instance = this;
-                    window.navigator.clipboard.readText().then(function(text) {
-                        instance.url = text;
-                    });
-                }
-            },
-            downloadText(download) {
-                return (download.isHD ? "Without Watermark [:idx] HD" : "Without Watermark [:idx]").replace(":idx", download.idx + 1);
-            },
-            downloadSize(download) {
-                if (!download.size) return ''
-                return ' ' + bytesToSize(download.size);
-            },
-
-            searchVideo(event) {
-                const instance = this;
-                this.resetVideo(event.detail).then(function() {
-                    instance.submitForm();
-                    window.scrollTo({
-                        top: 0
-                    });
-                });
-            },
-            resetVideo(url = "") {
-                $('#clearBtn').hide();
-                $('#pasteBtn').show();
-                this.url = url;
-                this.tiktokVideo = null;
-                $('.how-to-section').show();
-                $('.about-section').show();
-                $('.faq-section').show();
-                return this.$nextTick();
-            },
-            downloadVideo(e) {
-                let anchorEl = e.target;
-                if (anchorEl.tagName.toLowerCase() !== 'a') {
-                    anchorEl = anchorEl.closest('a');
-                }
-
-                if (!anchorEl || !anchorEl.href) return;
-
-                const url = new URL('/download', 'https://downloaderi.com/');
-
-                const extension = anchorEl.dataset.extension ?? 'mp4';
-                const size = anchorEl.dataset.size;
-
-                url.searchParams.set('url', btoa(anchorEl.href));
-                url.searchParams.set('extension', extension);
-                if (typeof size === 'string' && size.trim() !== '')
-                    url.searchParams.set('size', size);
-
-                open(url.toString(), "_blank");
-            }
-        };
-    }
-
-    function bytesToSize(bytes) {
-        const units = ["byte", "kilobyte", "megabyte", "terabyte", "petabyte"];
-        const unit = Math.floor(Math.log(bytes) / Math.log(1024));
-        return new Intl.NumberFormat("en", {
-            style: "unit",
-            unit: units[unit],
-            unitDisplay: 'narrow',
-            notation: 'compact'
-        }).format(bytes / 1024 ** unit);
-    }
-
-    function validateURL(url) {
-        return /^(https?:\/\/)?(www\.)?vm\.tiktok\.com\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?m\.tiktok\.com\/v\/[^\n]+\.html([^\n]+)?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/t\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/@[^\n]+\/video\/[^\n]+$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?vt\.tiktok\.com\/[^\n]+\/?$/.test(url)
-    }
-
-                                        </script>
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-        function AccordionComponent() {
-            return {
-                show: false,
-                toggleShow() {
-                    this.show = !this.show;
-                }
-            };
-        }
-
-                                        </script>
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-        function HeaderComponent() {
-            return {
-                showNav: false,
-                toggleNav() {
-                    this.showNav = !this.showNav;
-                }
-            };
-        }
-
-                                        </script>
-                    <script type="598483635d84f38bbdb7382a-text/javascript">
-        function ChangeLocaleComponent() {
-            return {
-                showMenu: false,
-                closeMenu() {
-                    this.showMenu = false;
-                },
-                toggleMenu() {
-                    this.showMenu = !this.showMenu;
-                }
-            };
-        }
-                                        </script>
 
                     <section class="about-section" aria-label="Acerca de la sección">
                         <div class="container">
@@ -761,13 +604,7 @@
                     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
                     <!--<script src="js/jquery.min.js"></script>-->
                     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-                    <script>
-                        function collapse(id) {
-                            let collapse = document.getElementById(id);
-                            if (collapse.classList.contains("show")) collapse.classList.remove("show");
-                            else collapse.classList.add("show");
-                        }
-                    </script>
+
                     <br><br>
 
                     <div class="accordion" x-data="AccordionComponent()">
@@ -906,40 +743,7 @@
                 <br><br><br>
             </div>
         </div>
-        <style>
-            #video_title {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-align: left;
-            }
-            .dark-theme #video-image {
-                background-color: #2b333e!important;
-            }
-            @media (min-width: 768px) {
-                .w-md-75 {
-                    width: 75% !important;
-                }
-            }
-            @media (min-width: 990px) {
-                .w-md-75 a {
-                    padding: 10px 90px 10px 90px!important;
-                }
-            }
-            @media (max-width: 990px) {
-                .w-md-75 a {
-                    padding-top: 10px!important;
-                    padding-bottom: 10px!important;
-                }
-            }
-            .share-button:hover {
-                background-color:#29b76b;
-            }
-            .share-button:focus {
-                background-color:#29b76b;
-            }
-        </style>
+
     </div>
 </main>
 
@@ -967,6 +771,13 @@
         </path>
     </svg>
 </button>
+    <script>
+        function collapse(id) {
+            let collapse = document.getElementById(id);
+            if (collapse.classList.contains("show")) collapse.classList.remove("show");
+            else collapse.classList.add("show");
+        }
+    </script>
 <script>
     const lang = {currentLang: "es", paste: "Paste", clear: "Clear", linkEmpty: "Link is empty."};
 </script>

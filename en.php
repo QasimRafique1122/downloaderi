@@ -60,27 +60,127 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/family-nunito.css">
     <link rel="stylesheet" href="css/font-awesome.min.css?display=swap">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script defer type="598483635d84f38bbdb7382a-text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            window.toasted = new window.Toasted({
-                theme: 'bootstrap',
-                position: 'top-center',
-                duration: 5000,
-            })
-        });
 
-</head>
-<body id="body" class="body">
-<script>
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme == "dark") {
-          document.body.classList.toggle("dark-theme");
-        } else if (currentTheme == "light") {
-          document.body.classList.toggle("light-theme");
+
+    <style type="text/css">
+        .st0 {
+            clip-path: url(#SVGID_00000092455597627947202120000002799908034589359492_);
         }
 
-    </script>
+        .st1 {
+            fill: #7D8EA8;
+        }
+
+        .st2 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+    <style type="text/css">
+        @media (min-width: 768px) {
+            .about-section .service-cards {
+                gap: 0!important;
+            }
+            .about-section .service-card {
+                padding-right: 25px;
+                padding-left: 25px;
+                flex: 0 0 auto !important;
+                width: 33.33333333%;
+            }
+        }
+        .dropdown-menu.show {
+            display: grid;
+        }
+        .about-section .service-card .icon svg {
+            width: auto;
+            height: 80px;
+        }
+        .artical-head {
+            color:#334f7e !important;
+            font-size: 2.5rem;
+            margin-top: 5px;
+            margin-bottom: 5px
+        }
+        .dark-theme .artical-head {
+            color: white!important;
+        }
+        .collapsed .icon {
+            transform: rotate(0deg)!important;
+        }
+        .accordion .icon {
+            transform: rotate(180deg) ;
+        }
+        @media (min-width: 900px) {
+            .accordion{
+                width: 65%!important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        #artical {
+            margin-top: 15px !important;
+        }
+
+        .st0 {
+            fill: #7D8EA8;
+            fill-opacity: 0.5;
+        }
+
+        .st1 {
+            fill: none;
+            stroke: #33507E;
+            stroke-width: 2;
+        }
+
+        .st2 {
+            fill: #7D8EA8;
+            fill-opacity: 0.3;
+        }
+
+        .st3 {
+            fill: #33507E;
+        }
+    </style>
+    <style>
+        #video_title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-align: left;
+        }
+        .dark-theme #video-image {
+            background-color: #2b333e!important;
+        }
+        @media (min-width: 768px) {
+            .w-md-75 {
+                width: 75% !important;
+            }
+        }
+        @media (min-width: 990px) {
+            .w-md-75 a {
+                padding: 10px 90px 10px 90px!important;
+            }
+        }
+        @media (max-width: 990px) {
+            .w-md-75 a {
+                padding-top: 10px!important;
+                padding-bottom: 10px!important;
+            }
+        }
+        .share-button:hover {
+            background-color:#29b76b;
+        }
+        .share-button:focus {
+            background-color:#29b76b;
+        }
+    </style>
+
+
+
 
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -197,66 +297,7 @@
             </div>
         </div>
 
-        <script>
-            function runGet() {
-                $('#fieldRequired').text("");
-                var videoUrl = document.getElementById("url").value;
-                if (videoUrl == "") {
-                    $('#fieldRequired').text('Please Enter Tiktok url!');
-                    return;
-                }
-                const progress = document.querySelector(".progress-box");
-                clearProgressBar()
-                progress.classList.add("active");
-                runProgressBar()
-                setTimeout(redirectToDownload(), 150);
-            }
-            function redirectToDownload() {
-                var videoUrl = document.getElementById("url").value;
-                     $.ajax({
-                    url: "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index'",
-                    type: "GET",
-                    data: {
-                        'url': videoUrl
-                    },
-                    headers: {
-                        'X-RapidAPI-Key': '3d204a970emshd8658b3f3e32d6dp138ebcjsn7a898b2a7b31',
-                        'X-RapidAPI-Host': 'tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com'
-                    },
-                    success: function (data) {
-                        if (data.status === 'failed') {
-                            (document.querySelector(".progress-box")).classList.remove("active");
-                            $('#fieldRequired').text('Error: Url is not supported!');
-                        } else {
-                            var thumbnail = data.cover
-                            var withOutMark = data.video;
-                            var sound = data.music;
-                            var author = data.author;
-                            document.getElementById('video_image').src = thumbnail;
-                            document.getElementById('author').innerHTML = author;
-                            document.getElementById('video_title').innerHTML = data.description;
-                            document.getElementsByClassName('btn-download-video')[0].href=`download-tik.php?token=${window.btoa(withOutMark)}&media=video/mp4`
-                            document.getElementsByClassName('btn-download-sound')[0].href=`download-tik.php?token=${window.btoa(sound)}&media=audio/mp3`
-                            goDownloadPage()
-                            // window.open('download.php?v=' + sv, '_self');
-                        }
-                    }
-                });
-            }
-            function goDownloadPage() {
-                document.getElementsByClassName("without-video-url")[0].style.display = "none";
-                document.getElementsByClassName("without-video-url")[1].style.display = "none";
-                document.getElementsByClassName("with-video-url")[0].style.display = "block";
-            }
-            function runProgressBar() {
-                var progressBar = document.querySelector(".progress-bar");
-                progressBar.style.animation = 'progressing 9s linear';
-            }
-            function clearProgressBar() {
-                var progressBar = document.querySelector(".progress-bar");
-                progressBar.style.width = '0%';
-            }
-        </script>
+
 
         <div class="ad-box">
             <div class="container">
@@ -344,177 +385,7 @@
 						and more...
 					</div>
 					</p>
-                                            <script type="598483635d84f38bbdb7382a-text/javascript">
-    function SplashComponent() {
-        return {
-            /**
-             * @var {Record<string, any|Record<string,any>|Record<string,any>[]>}
-             */
-            tiktokVideo: null,
-            url: "",
-            processing: false,
-            submitForm() {
 
-                if (!validateURL(this.url)) {
-                    alert("hii");
-                    return window.toasted.show("Please enter a valid URL", {
-                        type: "error"
-                    });
-                }
-
-                this.processing = true;
-                const instance = this;
-                const formData = new FormData(this.$refs.form);
-
-                fetch(this.$refs.form.action, {
-                        method: this.$refs.form.method,
-                        body: formData,
-                        headers: {
-                            "accept": "application/json"
-                        }
-                    })
-                    .then(function(response) {
-                        if (response.status !== 200) {
-                            return response.json().then(function(data) {
-                                throw new Error(data.message ?? response.statusText);
-                            });
-                        }
-                        $('.how-to-section').hide();
-                        $('.about-section').hide();
-                        $('.faq-section').hide();
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        instance.tiktokVideo = data;
-                    })
-                    .catch(function(error) {
-                        window.toasted.show(error.message, {
-                            type: "error"
-                        });
-                    })
-                    .finally(function() {
-                        instance.processing = false;
-                    });
-            },
-            //Paste logic
-            get canPaste() {
-                return window.navigator.clipboard;
-            },
-            pasteText() {
-                $('#clearBtn').show();
-                $('#pasteBtn').hide();
-                if (this.canPaste) {
-                    const instance = this;
-                    window.navigator.clipboard.readText().then(function(text) {
-                        instance.url = text;
-                    });
-                }
-            },
-            downloadText(download) {
-                return (download.isHD ? "Without Watermark [:idx] HD" : "Without Watermark [:idx]").replace(":idx", download.idx + 1);
-            },
-            downloadSize(download) {
-                if (!download.size) return ''
-                return ' ' + bytesToSize(download.size);
-            },
-
-            searchVideo(event) {
-                const instance = this;
-                this.resetVideo(event.detail).then(function() {
-                    instance.submitForm();
-                    window.scrollTo({
-                        top: 0
-                    });
-                });
-            },
-            resetVideo(url = "") {
-                $('#clearBtn').hide();
-                $('#pasteBtn').show();
-                this.url = url;
-                this.tiktokVideo = null;
-                $('.how-to-section').show();
-                $('.about-section').show();
-                $('.faq-section').show();
-                return this.$nextTick();
-            },
-            downloadVideo(e) {
-                let anchorEl = e.target;
-                if (anchorEl.tagName.toLowerCase() !== 'a') {
-                    anchorEl = anchorEl.closest('a');
-                }
-
-                if (!anchorEl || !anchorEl.href) return;
-
-                const url = new URL('/download', 'https://downloaderi.com/');
-
-                const extension = anchorEl.dataset.extension ?? 'mp4';
-                const size = anchorEl.dataset.size;
-
-                url.searchParams.set('url', btoa(anchorEl.href));
-                url.searchParams.set('extension', extension);
-                if (typeof size === 'string' && size.trim() !== '')
-                    url.searchParams.set('size', size);
-
-                open(url.toString(), "_blank");
-            }
-        };
-    }
-
-    function bytesToSize(bytes) {
-        const units = ["byte", "kilobyte", "megabyte", "terabyte", "petabyte"];
-        const unit = Math.floor(Math.log(bytes) / Math.log(1024));
-        return new Intl.NumberFormat("en", {
-            style: "unit",
-            unit: units[unit],
-            unitDisplay: 'narrow',
-            notation: 'compact'
-        }).format(bytes / 1024 ** unit);
-    }
-
-    function validateURL(url) {
-        return /^(https?:\/\/)?(www\.)?vm\.tiktok\.com\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?m\.tiktok\.com\/v\/[^\n]+\.html([^\n]+)?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/t\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/@[^\n]+\/video\/[^\n]+$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?vt\.tiktok\.com\/[^\n]+\/?$/.test(url)
-    }
-
-                                        </script>
-                                            <script type="598483635d84f38bbdb7382a-text/javascript">
-        function AccordionComponent() {
-            return {
-                show: false,
-                toggleShow() {
-                    this.show = !this.show;
-                }
-            };
-        }
-
-                                        </script>
-                                            <script type="598483635d84f38bbdb7382a-text/javascript">
-        function HeaderComponent() {
-            return {
-                showNav: false,
-                toggleNav() {
-                    this.showNav = !this.showNav;
-                }
-            };
-        }
-
-                                        </script>
-                                            <script type="598483635d84f38bbdb7382a-text/javascript">
-        function ChangeLocaleComponent() {
-            return {
-                showMenu: false,
-                closeMenu() {
-                    this.showMenu = false;
-                },
-                toggleMenu() {
-                    this.showMenu = !this.showMenu;
-                }
-            };
-        }
-                                        </script>
 
                                             <section class="about-section" aria-label="About Section">
                                                 <div class="container">
@@ -527,71 +398,7 @@
                                                                      y="0px" viewBox="0 0 54 88"
                                                                      style="enable-background:new 0 0 54 88;"
                                                                      xml:space="preserve">
-<style type="text/css">
-    @media (min-width: 768px) {
-	    .about-section .service-cards {
-			gap: 0!important;
-		}
-	    .about-section .service-card {
-			padding-right: 25px;
-			padding-left: 25px;
-			flex: 0 0 auto !important;
-		    width: 33.33333333%;
-		}
-	}
-     .dropdown-menu.show {
-        display: grid;
-    }
-    .about-section .service-card .icon svg {
-        width: auto;
-        height: 80px;
-    }
-    .artical-head {
-        color:#334f7e !important;
-        font-size: 2.5rem;
-        margin-top: 5px;
-        margin-bottom: 5px
-    }
-    .dark-theme .artical-head {
-        color: white!important;
-    }
-    .collapsed .icon {
-        transform: rotate(0deg)!important;
-    }
-    .accordion .icon {
-        transform: rotate(180deg) ;
-    }
-    @media (min-width: 900px) {
-        .accordion{
-            width: 65%!important;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-    #artical {
-        margin-top: 15px !important;
-    }
 
-    .st0 {
-        fill: #7D8EA8;
-        fill-opacity: 0.5;
-    }
-
-    .st1 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-    }
-
-    .st2 {
-        fill: #7D8EA8;
-        fill-opacity: 0.3;
-    }
-
-    .st3 {
-        fill: #33507E;
-    }
-</style>
                                                                     <path class="st0"
                                                                           d="M8.5,8h29c4.4,0,8,3.6,8,8v64c0,4.4-3.6,8-8,8h-29c-4.4,0-8-3.6-8-8V16C0.5,11.6,4.1,8,8.5,8z"/>
                                                                     <path class="st1"
@@ -795,23 +602,6 @@
                                                                      y="0px" viewBox="0 0 80 80"
                                                                      style="enable-background:new 0 0 80 80;"
                                                                      xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        clip-path: url(#SVGID_00000092455597627947202120000002799908034589359492_);
-    }
-
-    .st1 {
-        fill: #7D8EA8;
-    }
-
-    .st2 {
-        fill: none;
-        stroke: #33507E;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-</style>
                                                                     <g>
                                                                         <defs>
                                                                             <rect id="SVGID_1_" width="80" height="80"/>
@@ -852,13 +642,7 @@
                                             <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
                                             <!--<script src="js/jquery.min.js"></script>-->
                                             <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-                                            <script>
-                                                function collapse(id) {
-                                                    let collapse = document.getElementById(id);
-                                                    if (collapse.classList.contains("show")) collapse.classList.remove("show");
-                                                    else collapse.classList.add("show");
-                                                }
-                                            </script>
+
                                             <br><br>
 
                                             <div class="accordion" x-data="AccordionComponent()">
@@ -1026,40 +810,7 @@
                     <br><br><br>
                 </div>
             </div>
-            <style>
-                #video_title {
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-align: left;
-                }
-                .dark-theme #video-image {
-                    background-color: #2b333e!important;
-                }
-                @media (min-width: 768px) {
-                    .w-md-75 {
-                        width: 75% !important;
-                    }
-                }
-                @media (min-width: 990px) {
-                    .w-md-75 a {
-                        padding: 10px 90px 10px 90px!important;
-                    }
-                }
-                @media (max-width: 990px) {
-                    .w-md-75 a {
-                        padding-top: 10px!important;
-                        padding-bottom: 10px!important;
-                    }
-                }
-                 .share-button:hover {
-                    background-color:#29b76b;
-                }
-                .share-button:focus {
-                    background-color:#29b76b;
-                }
-            </style>
+
         </div>
     </main>
 
@@ -1089,117 +840,10 @@
             </path>
         </svg>
     </button>
-    <script>
-        const lang = {currentLang: "en", paste: "Paste", clear: "Clear", linkEmpty: "Link is empty."};
-    </script>
-    <script>
-        function insertAndExecute(e, t) {
-            domelement = document.getElementById(e), domelement.innerHTML = t;
-            var n = [];
-            ret = domelement.childNodes;
-            for (var o = 0; ret[o]; o++) !n || !nodeName(ret[o], "script") || ret[o].type && "text/javascript" !== ret[o].type.toLowerCase() || n.push(ret[o].parentNode ? ret[o].parentNode.removeChild(ret[o]) : ret[o]);
-            for (script in n) evalScript(n[script])
-        }
-        function nodeName(e, t) {
-            return e.nodeName && e.nodeName.toUpperCase() === t.toUpperCase()
-        }
-        function evalScript(e) {
-            data = e.text || e.textContent || e.innerHTML || "";
-            var t = document.getElementsByTagName("head")[0] || document.documentElement,
-                n = document.createElement("script");
-            n.type = "text/javascript", n.appendChild(document.createTextNode(data)), t.insertBefore(n, t.firstChild), t.removeChild(n), e.parentNode && e.parentNode.removeChild(e)
-        }
-        function runProgress() {
-            if (0 == j) {
-                j = 1;
-                var e = document.querySelector(".progress-bar");
-                e.style.width = 0;
-                var t = 1,
-                    n = setInterval(function () {
-                        t >= 99 ? (clearInterval(n), j = 0) : (t++, e.ariaValueNow = t, e.style.width = t + "%")
-                    }, 140)
-            }
-        }
-        function iOS() {
-            return ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"].includes(navigator.platform) || navigator.userAgent.includes("Mac") && "ontouchend" in document
-        }
-        function isAndroid() {
-            var e = navigator.userAgent.toLowerCase();
-            return e.indexOf("android") > -1
-        }
-        function openModal(e) {
-            e.classList.add("is-active"), document.getElementById("body").style.overflow = "hidden"
-        }
-        function closeModal(e) {
-            e.classList.remove("is-active"), document.getElementById("body").style.overflow = "auto"
-        }
-        function closeAllModals() {
-            (document.querySelectorAll(".modal") || []).forEach(e => {
-                closeModal(e)
-            })
-        }
-        function showAd(e, t) {
-            let n = document.querySelectorAll('ins[data-vignette-loaded="true"]');
-            0 == n.length && iOS() && t.preventDefault(), t.stopPropagation(), openModal(document.getElementById("ad-modal")), document.getElementById("ads-content").innerHTML = '<ins class="adsbygoogle" style="display:block; margin: 0 auto;" data-ad-client="ca-pub-2496545456108734" data-ad-slot="8422982901" data-ad-format="auto" data-full-width-responsive="true"></ins>', (adsbygoogle = window.adsbygoogle || []).push({}), 0 == n.length && iOS() && setTimeout(function () {
-                null != e.getAttribute("href") ? window.location.href = e.getAttribute("href") : sendEvent("Error_Link_Null")
-            }, 1e3)
-        }
-        function showBtnClear() {
-            btnPaste.classList.add("active"), document.querySelector(".btn-paste span").innerHTML = lang.clear
-        }
-        function showAlert(e) {
-            alertEL.classList.add("active"), alertEL.innerHTML = e
-        }
-        function hideAlert(e) {
-            alertEL.classList.remove("active"), alertEL.innerHTML = ""
-        }
-        function toggleLang() {
-            document.querySelectorAll(".navbar-lang")[0].classList.toggle("show"), document.querySelector(".dropdown-lang").classList.toggle("show")
-        }
-        const toggleSwitch = document.querySelector(".btn-darkmode");
-        toggleSwitch.addEventListener("click", function () {
-            document.body.classList.toggle("dark-theme");
-            var e = document.body.classList.contains("dark-theme") ? "dark" : "light";
-            localStorage.setItem("theme", e)
-        });
-        const btnPaste = document.querySelector(".btn-paste"),
-            inputUrl = document.getElementById("url");
-        btnPaste.addEventListener("click", function () {
-            btnPaste.classList.contains("active") ? (inputUrl.value = "", navigator.clipboard && (btnPaste.classList.remove("active"), document.querySelector(".btn-paste span").innerHTML = lang.paste)) : navigator.clipboard.readText().then(function (e) {
-                "" != e ? (inputUrl.value = e, showBtnClear()) : showAlert(lang.linkEmpty)
-            })
-        }), navigator.clipboard && (btnPaste.style.display = "flex"), inputUrl.addEventListener("keyup", function (e) {
-            inputUrl.value.length > 0 && showBtnClear(), hideAlert()
-        });
-        const alertEL = document.getElementById("alert"),
-            shareButton = document.querySelector(".share-button");
-        shareButton.addEventListener("click", e => {
-            navigator.share ? navigator.share({
-                title: "Share Downloaderi",
-                url: "https://downloaderi.com"
-            }).then(() => {
-                sendEvent("Share_sucs_by_webapi")
-            }).catch(console.error) : sendEvent("Share_webapi_not_support"), sendEvent("share_click_btnShare")
-        });
-    </script>
-    <script type="text/javascript">
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-136242323-1', 'auto');
-        ga('send', 'pageview');
-        function sendEvent(e, n = "") {
-            "" == n ? ga("send", "event", "home", e) : ga("send", "event", "home", e, n)
-        }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="combineJs.js"></script>
+
+
     <script type="application/ld+json">{
             "@context": "https://schema.org/",
             "@type": "WebSite",
@@ -1212,19 +856,19 @@
             "name": "Downloaderi",
             "url": "https://downloaderi.com",
             "logo": "https://downloaderi.com/images/icon_x192.png",
-            "image": "https://downloaderi.com/images/downloaderi.jpg",
-            "description": "TikTok Video Downloader - Downloaderi.com helps you to download Tiktok Videos without watermark. You can use all devices to download tiktok to MP4 for free.",
+            "image": "https://downloaderi.com/assets/img/snapthumb.jpg",
+            "description": "TikTok Video Downloader - You can easily download Tiktok Videos without watermark in 5 seconds by using this simple tiktok downloader tool. Just copy and paste video URL and download the video MP4 fast and for free.",
             "email": "downloaderiweb@gmail.com",
             "sameAs": [
                 "https://play.google.com/store/apps/details?id=com.downloader.downloaderi.nologo.nowatermark",
-                "https://www.flickr.com/people/downloaderi",
-                "https://twitter.com/downloaderiweb",
+                "https://www.flickr.com/people/downloaderi/",
+                "https://twitter.com/downloaderi",
                 "https://downloaderi.tumblr.com/",
-                "https://www.pinterest.com/Fopheii",
+                "https://www.pinterest.com/downloaderi",
                 "https://about.me/downloaderi",
                 "https://www.linkedin.com/in/downloaderi/",
                 "https://vimeo.com/downloaderi",
-                "https://www.youtube.com/somblu",
+                "https://www.youtube.com/channel/tokealo",
                 "https://www.zippyshare.com/downloaderi",
                 "https://www.woddal.com/downloaderi",
                 "https://www.weddingbee.com/members/downloaderi/",
@@ -1246,5 +890,6 @@
                 "https://anchor.fm/downloaderi"
             ]
         }</script>
+
     </body>
 </html>
