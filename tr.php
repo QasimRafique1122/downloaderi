@@ -921,54 +921,56 @@
             </path>
         </svg>
     </button>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="combineJs.js"></script>
-    <script type="application/ld+json">{
-            "@context": "https://schema.org/",
-            "@type": "WebSite",
-            "name": "Downloaderi",
-            "url": "https://downloaderi.com"
-        }</script>
-    <script type="application/ld+json">{
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Downloaderi",
-            "url": "https://downloaderi.com",
-            "logo": "https://downloaderi.com/images/icon_x192.png",
-            "image": "https://downloaderi.com/assets/img/snapthumb.jpg",
-            "description": "TikTok Video Downloader - You can easily download Tiktok Videos without watermark in 5 seconds by using this simple tiktok downloader tool. Just copy and paste video URL and download the video MP4 fast and for free.",
-            "email": "downloaderiweb@gmail.com",
-            "sameAs": [
-                "https://play.google.com/store/apps/details?id=com.downloader.downloaderi.nologo.nowatermark",
-                "https://www.flickr.com/people/downloaderi/",
-                "https://twitter.com/downloaderi",
-                "https://downloaderi.tumblr.com/",
-                "https://www.pinterest.com/downloaderi",
-                "https://about.me/downloaderi",
-                "https://www.linkedin.com/in/downloaderi/",
-                "https://vimeo.com/downloaderi",
-                "https://www.youtube.com/channel/tokealo",
-                "https://www.zippyshare.com/downloaderi",
-                "https://www.woddal.com/downloaderi",
-                "https://www.weddingbee.com/members/downloaderi/",
-                "https://www.speedrun.com/user/downloaderi",
-                "https://www.snupps.com/downloaderi",
-                "https://seedandspark.com/user/downloaderi",
-                "https://en.gravatar.com/downloaderi",
-                "https://gab.com/downloaderi",
-                "https://beacons.page/downloaderi",
-                "https://qiita.com/downloaderi",
-                "https://soundcloud.com/downloaderi",
-                "https://vhearts.net/downloaderi",
-                "https://visual.ly/users/downloaderi/portfolio",
-                "https://devpost.com/downloaderi",
-                "https://linktr.ee/downloaderi",
-                "http://uid.me/downloaderi",
-                "http://ttlink.com/downloaderi",
-                "https://bbpress.org/forums/profile/downloaderi/",
-                "https://anchor.fm/downloaderi"
-            ]
-        }</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="combineJs.js"></script>
+
+
+<script type="application/ld+json">{
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Downloaderi",
+        "url": "https://downloaderi.com"
+    }</script>
+<script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Downloaderi",
+        "url": "https://downloaderi.com",
+        "logo": "https://downloaderi.com/images/icon_x192.png",
+        "image": "https://downloaderi.com/assets/img/snapthumb.jpg",
+        "description": "TikTok Video Downloader - You can easily download Tiktok Videos without watermark in 5 seconds by using this simple tiktok downloader tool. Just copy and paste video URL and download the video MP4 fast and for free.",
+        "email": "downloaderiweb@gmail.com",
+        "sameAs": [
+            "https://play.google.com/store/apps/details?id=com.downloader.downloaderi.nologo.nowatermark",
+            "https://www.flickr.com/people/downloaderi/",
+            "https://twitter.com/downloaderi",
+            "https://downloaderi.tumblr.com/",
+            "https://www.pinterest.com/downloaderi",
+            "https://about.me/downloaderi",
+            "https://www.linkedin.com/in/downloaderi/",
+            "https://vimeo.com/downloaderi",
+            "https://www.youtube.com/channel/tokealo",
+            "https://www.zippyshare.com/downloaderi",
+            "https://www.woddal.com/downloaderi",
+            "https://www.weddingbee.com/members/downloaderi/",
+            "https://www.speedrun.com/user/downloaderi",
+            "https://www.snupps.com/downloaderi",
+            "https://seedandspark.com/user/downloaderi",
+            "https://en.gravatar.com/downloaderi",
+            "https://gab.com/downloaderi",
+            "https://beacons.page/downloaderi",
+            "https://qiita.com/downloaderi",
+            "https://soundcloud.com/downloaderi",
+            "https://vhearts.net/downloaderi",
+            "https://visual.ly/users/downloaderi/portfolio",
+            "https://devpost.com/downloaderi",
+            "https://linktr.ee/downloaderi",
+            "http://uid.me/downloaderi",
+            "http://ttlink.com/downloaderi",
+            "https://bbpress.org/forums/profile/downloaderi/",
+            "https://anchor.fm/downloaderi"
+        ]
+    }</script>
 
     </body>
 </html>

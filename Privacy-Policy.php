@@ -57,15 +57,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="598483635d84f38bbdb7382a-text/javascript"></script>
 
-<script defer type="598483635d84f38bbdb7382a-text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            window.toasted = new window.Toasted({
-                theme: 'bootstrap',
-                position: 'top-center',
-                duration: 5000,
-            })
-        });
-    </script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4835686518321000" crossorigin="anonymous" type="598483635d84f38bbdb7382a-text/javascript"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136242323-1" type="598483635d84f38bbdb7382a-text/javascript"></script>

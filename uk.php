@@ -58,7 +58,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="stylesheet" href="css/family-nunito.css">
     <!--<link rel="stylesheet" href="theme-css.css">-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     <link rel="stylesheet" href="css/font-awesome.min.css?display=swap">
     <!--<link rel="stylesheet" href="downloaderi.css">-->
@@ -209,71 +208,6 @@
         </div>
     </div>
 
-    <script>
-        function runGet() {
-            $('#fieldRequired').text("");
-            var videoUrl = document.getElementById("url").value;
-            if (videoUrl == "") {
-                $('#fieldRequired').text('Please Enter Tiktok url!');
-                return;
-            }
-            const progress = document.querySelector(".progress-box");
-            clearProgressBar()
-            progress.classList.add("active");
-            runProgressBar()
-            setTimeout(redirectToDownload(), 150);
-        }
-
-        function redirectToDownload() {
-            var videoUrl = document.getElementById("url").value;
-            $.ajax({
-                url: "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index'",
-                type: "GET",
-                data: {
-                    'url': videoUrl
-                },
-                headers: {
-                    'X-RapidAPI-Key': '3d204a970emshd8658b3f3e32d6dp138ebcjsn7a898b2a7b31',
-                    'X-RapidAPI-Host': 'tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com'
-                },
-                success: function (data) {
-                    if (data.status === 'failed') {
-                        (document.querySelector(".progress-box")).classList.remove("active");
-                        $('#fieldRequired').text('Error: Url is not supported!');
-                    } else {
-                        var thumbnail = data.cover
-                        var withOutMark = data.video;
-                        var sound = data.music;
-                        var author = data.author;
-                        document.getElementById('video_image').src = thumbnail;
-                        document.getElementById('author').innerHTML = author;
-                        document.getElementById('video_title').innerHTML = data.description;
-                        document.getElementsByClassName('btn-download-video')[0].href = `download-tik.php?token=${window.btoa(withOutMark)}&media=video/mp4`
-                        document.getElementsByClassName('btn-download-sound')[0].href = `download-tik.php?token=${window.btoa(sound)}&media=audio/mp3`
-                        goDownloadPage()
-                        // window.open('download.php?v=' + sv, '_self');
-                    }
-                }
-            });
-        }
-
-        function goDownloadPage() {
-            document.getElementsByClassName("without-video-url")[0].style.display = "none";
-            document.getElementsByClassName("without-video-url")[1].style.display = "none";
-            document.getElementsByClassName("with-video-url")[0].style.display = "block";
-        }
-
-        function runProgressBar() {
-            var progressBar = document.querySelector(".progress-bar");
-            progressBar.style.animation = 'progressing 9s linear';
-        }
-
-        function clearProgressBar() {
-            var progressBar = document.querySelector(".progress-bar");
-            progressBar.style.width = '0%';
-        }
-    </script>
-
     <div class="ad-box">
         <div class="container">
             <div class="ad-container">
@@ -381,181 +315,7 @@
                         <br>
                 </span>
 
-                <script type="598483635d84f38bbdb7382a-text/javascript">
-    function SplashComponent() {
-        return {
-            /**
-             * @var {Record<string, any|Record<string,any>|Record<string,any>[]>}
-             */
-            tiktokVideo: null,
-            url: "",
-            processing: false,
-            submitForm() {
 
-                if (!validateURL(this.url)) {
-                    alert("hii");
-                    return window.toasted.show("Please enter a valid URL", {
-                        type: "error"
-                    });
-                }
-
-                this.processing = true;
-                const instance = this;
-                const formData = new FormData(this.$refs.form);
-
-                fetch(this.$refs.form.action, {
-                        method: this.$refs.form.method,
-                        body: formData,
-                        headers: {
-                            "accept": "application/json"
-                        }
-                    })
-                    .then(function(response) {
-                        if (response.status !== 200) {
-                            return response.json().then(function(data) {
-                                throw new Error(data.message ?? response.statusText);
-                            });
-                        }
-                        $('.how-to-section').hide();
-                        $('.about-section').hide();
-                        $('.faq-section').hide();
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        instance.tiktokVideo = data;
-                    })
-                    .catch(function(error) {
-                        window.toasted.show(error.message, {
-                            type: "error"
-                        });
-                    })
-                    .finally(function() {
-                        instance.processing = false;
-                    });
-            },
-            //Paste logic
-            get canPaste() {
-                return window.navigator.clipboard;
-            },
-            pasteText() {
-                $('#clearBtn').show();
-                $('#pasteBtn').hide();
-                if (this.canPaste) {
-                    const instance = this;
-                    window.navigator.clipboard.readText().then(function(text) {
-                        instance.url = text;
-                    });
-                }
-            },
-            downloadText(download) {
-                return (download.isHD ? "Without Watermark [:idx] HD" : "Without Watermark [:idx]").replace(":idx", download.idx + 1);
-            },
-            downloadSize(download) {
-                if (!download.size) return ''
-                return ' ' + bytesToSize(download.size);
-            },
-
-            searchVideo(event) {
-                const instance = this;
-                this.resetVideo(event.detail).then(function() {
-                    instance.submitForm();
-                    window.scrollTo({
-                        top: 0
-                    });
-                });
-            },
-            resetVideo(url = "") {
-                $('#clearBtn').hide();
-                $('#pasteBtn').show();
-                this.url = url;
-                this.tiktokVideo = null;
-                $('.how-to-section').show();
-                $('.about-section').show();
-                $('.faq-section').show();
-                return this.$nextTick();
-            },
-            downloadVideo(e) {
-                let anchorEl = e.target;
-                if (anchorEl.tagName.toLowerCase() !== 'a') {
-                    anchorEl = anchorEl.closest('a');
-                }
-
-                if (!anchorEl || !anchorEl.href) return;
-
-                const url = new URL('/download', 'https://downloaderi.com/');
-
-                const extension = anchorEl.dataset.extension ?? 'mp4';
-                const size = anchorEl.dataset.size;
-
-                url.searchParams.set('url', btoa(anchorEl.href));
-                url.searchParams.set('extension', extension);
-                if (typeof size === 'string' && size.trim() !== '')
-                    url.searchParams.set('size', size);
-
-                open(url.toString(), "_blank");
-            }
-        };
-    }
-
-    function bytesToSize(bytes) {
-        const units = ["byte", "kilobyte", "megabyte", "terabyte", "petabyte"];
-        const unit = Math.floor(Math.log(bytes) / Math.log(1024));
-        return new Intl.NumberFormat("en", {
-            style: "unit",
-            unit: units[unit],
-            unitDisplay: 'narrow',
-            notation: 'compact'
-        }).format(bytes / 1024 ** unit);
-    }
-
-    function validateURL(url) {
-        return /^(https?:\/\/)?(www\.)?vm\.tiktok\.com\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?m\.tiktok\.com\/v\/[^\n]+\.html([^\n]+)?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/t\/[^\n]+\/?$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?tiktok\.com\/@[^\n]+\/video\/[^\n]+$/.test(url) ||
-            /^(https?:\/\/)?(www\.)?vt\.tiktok\.com\/[^\n]+\/?$/.test(url)
-    }
-
-
-                </script>
-                <script type="598483635d84f38bbdb7382a-text/javascript">
-        function AccordionComponent() {
-            return {
-                show: false,
-                toggleShow() {
-                    this.show = !this.show;
-                }
-            };
-        }
-
-
-                </script>
-                <script type="598483635d84f38bbdb7382a-text/javascript">
-        function HeaderComponent() {
-            return {
-                showNav: false,
-                toggleNav() {
-                    this.showNav = !this.showNav;
-                }
-            };
-        }
-
-
-                </script>
-                <script type="598483635d84f38bbdb7382a-text/javascript">
-        function ChangeLocaleComponent() {
-            return {
-                showMenu: false,
-                closeMenu() {
-                    this.showMenu = false;
-                },
-                toggleMenu() {
-                    this.showMenu = !this.showMenu;
-                }
-            };
-        }
-
-                </script>
 
                 <section class="about-section" aria-label="Про розділ">
                     <div class="container">
@@ -877,16 +637,6 @@
                     </div>
                 </section>
 
-                <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
-                <!--<script src="js/jquery.min.js"></script>-->
-                <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-                <script>
-                    function collapse(id) {
-                        let collapse = document.getElementById(id);
-                        if (collapse.classList.contains("show")) collapse.classList.remove("show");
-                        else collapse.classList.add("show");
-                    }
-                </script>
                 <br><br>
 
                 <div class="accordion" x-data="AccordionComponent()">
@@ -1153,6 +903,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="combineJs.js"></script>
+
+
 <script type="application/ld+json">{
         "@context": "https://schema.org/",
         "@type": "WebSite",
@@ -1199,7 +951,6 @@
             "https://anchor.fm/downloaderi"
         ]
     }</script>
-
 
 </body>
 </html>
