@@ -1,0 +1,283 @@
+@import url("css/family-change.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.brand-text{
+    color: white !important;
+}
+body .nrt {
+    background-color: #334f7e;
+}
+body .nrt .header{
+    max-width: 1200px;
+    margin: auto;
+}
+.splash{
+    background: #ffffff;
+    background-image: url('https://downloaderi.com/coveer.png');
+    background-size: cover;
+    padding: 50px 0 40px;
+}
+.splash-form h1{
+    color: #334f7e;
+    font-size: 48px;
+    line-height: 56px;
+    font-family: roboto-medium,sans-serif;
+    letter-spacing: normal;
+    padding-bottom: 0;
+}
+.splash-form h2{
+    color: #334f7e;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    text-align: center;
+    line-height: 32px;
+    letter-spacing: .5px;
+    font-family: roboto-medium,sans-serif !important;
+}
+.splash-form{
+    max-width: 1200px;
+}
+.splash-form form{
+    max-width: 770px;
+    margin: auto;
+}
+.splash-search {
+    background:rgba(235,210,254,1);
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    box-shadow: none !important;
+    backdrop-filter: blur(9.48952px);
+    border-radius: 8px;
+    height: 64px;
+    padding-left: 20px !important;
+    line-height: 64px;
+}
+
+
+#text2{
+    height: 50px;
+    display: flex;
+}
+.splash-paste-button{
+    display: block;
+    position: absolute;
+    right: 0;
+    border: 1px solid #dddcdc;
+    padding: 9px;
+    margin-right: 3px !important;
+    border-radius: 5px !important;
+}
+.splash-search-input{
+    display: block;
+    padding: 0px 0 0px 10px !important;
+    margin: 0;
+    width: calc(100% - 77px) !important;
+    height: 48px !important;
+    box-shadow: none !important;
+    background: #f000 !important;
+    border: none !important;
+}
+.input-group-text{
+    background: #f000 !important;
+}
+.input-group-text .fa-link{
+    font-weight: bold;
+    font-size: 16px;
+}
+.splash-search-button{
+    animation: pulse 1.5s infinite;
+    z-index: 9999;
+    right: 5px;
+    top: 4px;
+    background: #5940f1;
+    box-shadow: 0 18px 40px -16px rgb(89 64 241 / 80%);
+    border-radius: 8px;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    color: #fff;
+    padding: 1em 1.5em;
+    border: 0;
+    margin: 0!important;
+}
+@keyframes pulse {
+
+    0% {
+      -moz-box-shadow: 0 0 0 0 #475ecb;
+      box-shadow: 0 0 0 0 #475ecb;
+    }
+    70% {
+      -moz-box-shadow: 0 0 0 10px transparent;
+      box-shadow: 0 0 0 10px transparent;
+    }
+    100% {
+      -moz-box-shadow: 0 0 0 0 transparent;
+      box-shadow: 0 0 0 0 transparent;
+    }
+}
+.container{
+    max-width: 1200px;
+}
+.container h2{
+    color: #334f7e !important;
+    font-size: 48px;
+    font-family: roboto-medium;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.container p{
+    font-size: 17px !important;
+    color: rgba(0,0,0,.9) !important;
+    font-family: roboto-regular,sans-serif !important;
+    margin: 0;
+    text-align: justify;
+    
+}
+.splash-video h2 , p{
+    color: #fff !important;
+}
+.splash-video::before{
+    background:lightblue!important ;
+}
+.center{
+    max-width: max-content;
+    margin: auto;
+    line-height: 2.5;
+}
+.about-section .service-card .icon svg{
+    width: auto;
+    height: 80px;
+}
+.service-cards{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    column-count: 3;
+}
+.about-section .service-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex: 25%;
+}
+.service-card h3{
+    font-size: 24px;
+    margin-top: 30px 0 20px 0px;
+}
+.about-section .service-card p{
+    max-width: 100% !important;
+}
+
+.faq-section .container h2{
+    position: relative;
+    font-size: 48px;
+    line-height: 1.35;
+    letter-spacing: .5px;
+    font-weight: normal;
+    color: black !important;
+}
+.faq-section .container a{
+    font-size: 16px;
+    margin: -30px auto 50px auto;
+    display: block;
+    width: max-content;
+    background-color: #334f72;
+    color: #fff;
+    transition: 0.3s;
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 48px;
+    cursor: pointer;
+    font-family: roboto-medium,sans-serif;
+    background-image: linear-gradient(to right, #314755 0%, #334f7e 51%, #314755 100%);
+    text-align: center;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    text-decoration: none;
+    
+}
+.faq-section .container a:hover{
+    background-color: #009670;
+    color: #fff;
+    background-position: right center;
+    border: 0px;
+}
+.fitems{
+    margin: auto;
+    width: 100%;
+    max-width: 770px;
+}
+.accordion-toggle{
+    padding: 18px 32px;
+    border: none !important;
+}
+.accordion-toggle h4{
+    font-weight: normal;
+    font-family: roboto-regular,sans-serif;
+    margin: 4px 0;
+}
+.accordion-content p{
+    padding: 5px 0 15px 0px;
+}
+.header nav a{
+    color: hsl(0, 0%, 100%);
+    
+}
+.mob{
+    display: none;
+}
+@media only screen and (max-width: 990px) {
+    .splash-paste-button {
+        margin: -8px;
+    }
+    .dsk{
+        display: none;
+    }
+    .mob{
+        display: block;
+        
+    }
+    .container h2{
+        line-height: 1.5;
+        font-size: 25px !important;
+    }
+    .how-to-section{
+        margin-top: 0 !important;
+    }
+    .about-section .service-cards{
+        text-align: center;
+    }
+}
+nav ul{
+    padding: 0;
+    margin: 0;
+}
+.splash-video-wrapper .reset-video{
+    background-color: #334f7e !important;
+}
+.splash-video{
+    box-shadow:0 0 2rem 1rem hsl(210deg 71% 78% / 20%) !important;
+}
+@media (max-width: 48em){
+.splash-search-button {
+    position: relative!important;
+    top: 10px;
+   right: 22px;
+    width: 92%;
+    margin-top: 10px!important;
+    background: linear-gradient(89.86deg,#ce00ff 8.6%,#5940f1 99.86%);
+    border: 1px solid #fff;
+}}

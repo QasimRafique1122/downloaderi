@@ -1,0 +1,50 @@
+.dark-theme .container p {
+    color: white!important;
+}
+.dark-theme .navbar-brand {
+    color: white!important;
+}
+.dark-theme .navbar-brand .fa-bolt {
+    color: white!important;
+}
+.collapsed .icon {
+    transform: rotate(0deg)!important;
+}
+.accordion .icon {
+    transform: rotate(180deg)!important;
+}
+.btn:active {
+    filter: brightness(75%) !important;
+}
+
+.icon.icon-paste-white{
+    background:url(../images/paste.svg) center no-repeat;
+    width:1rem;
+    height:1rem
+}
+
+.btn.btn-paste.active{
+    background:#334f7e !important;
+    color:#fff
+}
+.paste .btn-paste:hover{
+    background:#334f7e !important;
+    color:#fff!important;
+}
+.paste .btn-paste:focus{
+    background:#334f7e !important;
+    color:#fff!important;
+}
+.form-control:focus{
+    box-shadow: none!important;
+}
+#artical {
+    margin-top: 15px!important;
+}
+.btn-go:hover {
+    color: white!important;
+}
+@keyframes progressing {
+    0%  { width: 0% }
+    100%  { width: 50%}
+}
