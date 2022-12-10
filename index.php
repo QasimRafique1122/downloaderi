@@ -29,28 +29,8 @@
 	<link rel="shortcut icon" href="images/favicon.png" />
 	<meta name="google" content="notranslate" />
 	<link rel="stylesheet" href="css/custom.css">
-	<!--<link rel="stylesheet" href="all.min.css">-->
-	<link rel="alternate" hreflang="x-default" href="https://Downloaderi.com/en" />
-	<!--<link rel="alternate" hreflang="en" href="https://Downloaderi.com/en"/>-->
-	<link rel="alternate" hreflang="vi" href="https://Downloaderi.com/vn" />
-	<link rel="alternate" hreflang="tr" href="https://Downloaderi.com/tr" />
-	<link rel="alternate" hreflang="id" href="https://Downloaderi.com/ID" />
-	<link rel="alternate" hreflang="fr" href="https://Downloaderi.com/fr" />
-	<link rel="alternate" hreflang="pt" href="https://Downloaderi.com/pt" />
-	<link rel="alternate" hreflang="ru" href="https://Downloaderi.com/ru" />
-	<link rel="alternate" hreflang="es" href="https://Downloaderi.com/es" />
-	<link rel="alternate" hreflang="ms" href="https://Downloaderi.com/ms" />
-	<link rel="alternate" hreflang="ko" href="https://Downloaderi.com/ko" />
-	<link rel="alternate" hreflang="ja" href="https://Downloaderi.com/ja" />
-	<link rel="alternate" hreflang="jv" href="https://Downloaderi.com/jv" />
-	<link rel="alternate" hreflang="cs" href="https://Downloaderi.com/cs" />
-	<link rel="alternate" hreflang="de" href="https://Downloaderi.com/de" />
-	<link rel="alternate" hreflang="it" href="https://Downloaderi.com/it" />
-	<link rel="alternate" hreflang="pl" href="https://Downloaderi.com/pl" />
-	<link rel="alternate" hreflang="hu" href="https://Downloaderi.com/hu" />
-	<link rel="alternate" hreflang="nl" href="https://Downloaderi.com/nl" />
-	<link rel="alternate" hreflang="ro" href="https://Downloaderi.com/ro" />
-	<link rel="alternate" hreflang="el" href="https://Downloaderi.com/el" />
+<!--   if remove this then face issue language-->
+
 	<link rel="canonical" href="https://Downloaderi.com" />
 	<link rel="preconnect" href="//www.google-analytics.com">
 	<script async src="js/adsbygoogle.js"></script>
@@ -560,7 +540,7 @@
 								<path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
 							</svg>
 						</button>
-						<div id="collapse1" class="accordion-content panel-collapse collapse">
+						<div id="collapse1" class="accordion-contentaccordion-content panel-collapse collapse">
 							<div class="panel-body">
 								<p style="font-size:14px;"> The file will be
 									downloaded to a default folder set in browser, usually it is

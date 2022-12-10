@@ -6,106 +6,11 @@
   scroll-behavior: smooth;
 }
 
-.brand-text{
-    color: white !important;
-}
-body .nrt {
-    background-color: #334f7e;
-}
-body .nrt .header{
-    max-width: 1200px;
-    margin: auto;
-}
-.splash{
-    background: #ffffff;
-    background-image: url('https://downloaderi.com/coveer.png');
-    background-size: cover;
-    padding: 50px 0 40px;
-}
-.splash-form h1{
-    color: #334f7e;
-    font-size: 48px;
-    line-height: 56px;
-    font-family: roboto-medium,sans-serif;
-    letter-spacing: normal;
-    padding-bottom: 0;
-}
-.splash-form h2{
-    color: #334f7e;
-    font-size: 24px !important;
-    font-weight: bold !important;
-    text-align: center;
-    line-height: 32px;
-    letter-spacing: .5px;
-    font-family: roboto-medium,sans-serif !important;
-}
-.splash-form{
-    max-width: 1200px;
-}
-.splash-form form{
-    max-width: 770px;
-    margin: auto;
-}
-.splash-search {
-    background:rgba(235,210,254,1);
-    border: 1px solid #fff;
-    box-sizing: border-box;
-    box-shadow: none !important;
-    backdrop-filter: blur(9.48952px);
-    border-radius: 8px;
-    height: 64px;
-    padding-left: 20px !important;
-    line-height: 64px;
-}
 
 
-#text2{
-    height: 50px;
-    display: flex;
-}
-.splash-paste-button{
-    display: block;
-    position: absolute;
-    right: 0;
-    border: 1px solid #dddcdc;
-    padding: 9px;
-    margin-right: 3px !important;
-    border-radius: 5px !important;
-}
-.splash-search-input{
-    display: block;
-    padding: 0px 0 0px 10px !important;
-    margin: 0;
-    width: calc(100% - 77px) !important;
-    height: 48px !important;
-    box-shadow: none !important;
-    background: #f000 !important;
-    border: none !important;
-}
-.input-group-text{
-    background: #f000 !important;
-}
-.input-group-text .fa-link{
-    font-weight: bold;
-    font-size: 16px;
-}
-.splash-search-button{
-    animation: pulse 1.5s infinite;
-    z-index: 9999;
-    right: 5px;
-    top: 4px;
-    background: #5940f1;
-    box-shadow: 0 18px 40px -16px rgb(89 64 241 / 80%);
-    border-radius: 8px;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 130%;
-    text-align: center;
-    color: #fff;
-    padding: 1em 1.5em;
-    border: 0;
-    margin: 0!important;
-}
+
+
+
 @keyframes pulse {
 
     0% {
@@ -137,14 +42,9 @@ body .nrt .header{
     font-family: roboto-regular,sans-serif !important;
     margin: 0;
     text-align: justify;
-    
+
 }
-.splash-video h2 , p{
-    color: #fff !important;
-}
-.splash-video::before{
-    background:lightblue!important ;
-}
+
 .center{
     max-width: max-content;
     margin: auto;
@@ -207,7 +107,7 @@ body .nrt .header{
     background-size: 200% auto;
     box-shadow: 0 0 20px #eee;
     text-decoration: none;
-    
+
 }
 .faq-section .container a:hover{
     background-color: #009670;
@@ -234,11 +134,9 @@ body .nrt .header{
 }
 .header nav a{
     color: hsl(0, 0%, 100%);
-    
+
 }
-.mob{
-    display: none;
-}
+
 @media only screen and (max-width: 990px) {
     .splash-paste-button {
         margin: -8px;
@@ -248,7 +146,7 @@ body .nrt .header{
     }
     .mob{
         display: block;
-        
+
     }
     .container h2{
         line-height: 1.5;
@@ -265,19 +163,4 @@ nav ul{
     padding: 0;
     margin: 0;
 }
-.splash-video-wrapper .reset-video{
-    background-color: #334f7e !important;
-}
-.splash-video{
-    box-shadow:0 0 2rem 1rem hsl(210deg 71% 78% / 20%) !important;
-}
-@media (max-width: 48em){
-.splash-search-button {
-    position: relative!important;
-    top: 10px;
-   right: 22px;
-    width: 92%;
-    margin-top: 10px!important;
-    background: linear-gradient(89.86deg,#ce00ff 8.6%,#5940f1 99.86%);
-    border: 1px solid #fff;
-}}
+

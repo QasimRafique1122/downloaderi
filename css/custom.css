@@ -1,10 +1,9 @@
-@import url(https://downloaderi.com/css/bootstrap.min.css);
-@import url(https://downloaderi.com/downloaderi.css);
+@import "bootstrap.min.css";
+@import "../downloaderi.css";
 /*@import url(https://downloaderi.com/theme-css.css);*/
-@import url(https://downloaderi.com/all.min.css);
+@import "../all.min.css";
 /*@import url(https://downloaderi.com/downloaderi.css);*/
-@import url(https://downloaderi.com/theme-css.css);
-@import url(https://downloaderi.com/css/main.css);
+@import "../theme-css.css";
 
 .dark-theme .container p {
     color: white!important;
